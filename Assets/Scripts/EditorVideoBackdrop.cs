@@ -17,6 +17,13 @@ public sealed class EditorVideoBackdrop : MonoBehaviour
     [Tooltip("Distance from the camera along its forward axis.")]
     float backdropDistance = 8f;
 
+    [SerializeField]
+    [Tooltip("Mirror webcam U so editor preview matches common selfie flipping.")]
+    bool flipBackdropHorizontally = true;
+
+    /// <summary>Same distance passed to FitQuad — use when aligning Editor face-filter props with the webcam plane.</summary>
+    public float PlaneDistanceAlongCameraForward => backdropDistance;
+
     GameObject backdropRoot;
 
     void Awake()
@@ -68,7 +75,19 @@ public sealed class EditorVideoBackdrop : MonoBehaviour
         mat.mainTexture = rt;
         mr.sharedMaterial = mat;
 
+        ApplyFlipIfSupported(mat);
+
         FitQuadToCamera(cam, backdropRoot.transform, backdropDistance);
+    }
+
+    void ApplyFlipIfSupported(Material material)
+    {
+        if (!flipBackdropHorizontally || material == null)
+            return;
+        if (!material.HasProperty("_FlipU"))
+            return;
+
+        material.SetFloat("_FlipU", 1f);
     }
 
     static void FitQuadToCamera(Camera cam, Transform quad, float distance)

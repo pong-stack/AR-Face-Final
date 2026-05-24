@@ -29,6 +29,9 @@ public sealed class WebcamToRenderTexture : MonoBehaviour
 
     public RenderTexture TargetTexture => targetTexture;
 
+    /// <summary>For Editor webcam pose estimation (not GPU Blit).</summary>
+    public WebCamTexture ActiveWebCam => _cam;
+
     void OnEnable()
     {
         if (targetTexture == null)

@@ -148,7 +148,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65284393}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: caeceacb624484daf8e379c2252fd246, type: 3}
   m_Name: 
@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 990010002}
   - component: {fileID: 990010003}
   m_Layer: 0
-  m_Name: School Demo (Editor)
+  m_Name: Editor Webcam Face Filter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -729,7 +729,7 @@ Transform:
   m_GameObject: {fileID: 990010001}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -744,18 +744,57 @@ MonoBehaviour:
   m_GameObject: {fileID: 990010001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9e1a2b3c4d5647382910abcdef0123, type: 3}
+  m_Script: {fileID: 11500000, guid: edb12f34a0564c8791d2e3f4b5a6c708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   demoRoot: {fileID: 990010002}
   arDefaultFacePrefab: {fileID: 23294247358308396, guid: b2c2e8c12ac94154993eeaee96121bed, type: 3}
-  propsCrazyEyesPrefab: {fileID: 2975571329952892336, guid: e1ecc5d8ad4385a4688bbf80596ee6f4, type: 3}
-  faceWorldPosition: {x: 0, y: 0, z: 1}
-  faceWorldRotation: {x: 0, y: 0, z: 0, w: 1}
-  faceLocalScale: {x: 10, y: 10, z: 10}
-  propsLocalPosition: {x: 0, y: 0.006, z: 0.012}
-  propsLocalEuler: {x: 5, y: 180, z: 0}
-  propsLocalScale: {x: 1, y: 1, z: 1}
+  propsCrazyEyesPrefab: {fileID: 0}
+  filterPrefabs:
+  - {fileID: 3720199748111276690, guid: bc8e54b1d62bd2f499826cdfa9d5d708, type: 3}
+  - {fileID: 3720199748111276690, guid: 2f8c9eab3d0748b695d201a7c883d501, type: 3}
+  - {fileID: 2975571329952892336, guid: e1ecc5d8ad4385a4688bbf80596ee6f4, type: 3}
+  - {fileID: 4672036070492158906, guid: dec9cb245c0fee64b89e7397e32a289e, type: 3}
+  - {fileID: 1057963046678394846, guid: c19af72d0001ce34c82ba1c7a3f5cea4, type: 3}
+  - {fileID: 7336721415491951648, guid: cdbd3952e4784a9468547b3b0f4c0857, type: 3}
+  - {fileID: 6940153199964092255, guid: 0cf6f8839032dd44da3842a706ab9963, type: 3}
+  - {fileID: 3072673111959314633, guid: 6229c3363bbce7c4590b0a74326ec07c, type: 3}
+  autoCreateFilterSwitchUi: 1
+  nextFilterButtonLabel: Next Filter
+  mainCameraOverride: {fileID: 1600812352}
+  videoBackdropSource: {fileID: 367231896}
+  editorPlaneAlongCameraForward: -1
+  forwardBiasInFrontOfBackdrop: 0.08
+  fallbackWorldPosition: {x: 0, y: 0, z: 8}
+  fallbackWorldRotation: {x: 0, y: 0, z: 0, w: 1}
+  autoFitFaceMeshToViewport: 1
+  viewportHeightFractionForStandInFace: 0.42
+  faceStandInScaleMultiplier: 1
+  manualFaceLocalScale: {x: 1, y: 1, z: 1}
+  propsAttachToMainCamera: 0
+  propsHudLocalPosition: {x: 0, y: 0.06, z: 0.42}
+  propsHudLocalEuler: {x: 0, y: 180, z: 0}
+  propsHudUniformScale: 1.4
+  useWebcamFacePoseTracking: 1
+  webcamForPoseTracking: {fileID: 367231897}
+  trackingProcessWidth: 240
+  processEveryNFrames: 3
+  smoothResponseHz: 10
+  lateralPlaneGain: 1
+  verticalPlaneGain: 1
+  roiMarginX: 0.08
+  roiMarginY: 0.06
+  minSkinPixels: 350
+  horizontalMirrorSelfieStyle: 1
+  yawMaxDegreesFromCenter: 40
+  pitchMaxDegreesFromCenter: 32
+  rollEllipseGain: 0.62
+  depthBBoxGain: 0.45
+  maxDepthBBoxShift: 0.42
+  planeDistanceSmoothHz: 12
+  smoothScaleMultiplierHz: 8
+  normHeightRefAdaptiveRate: 0.055
+  lostFramesBeforeCenterOnly: 28
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
